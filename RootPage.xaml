@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LaCasa.View.RootPage"
+             BackgroundColor="Black"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False">
+    <!-- possible redesign sinon fini-->
+    <StackLayout Spacing="30">
+        <StackLayout Margin="30" Spacing="20">
+            <Image Source="compte" ></Image>
+            <BoxView HeightRequest="1" Color="Red" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout VerticalOptions="Center" Spacing="20">
+
+
+
+            <Label Text="Je suis ..." FontSize="Large" TextColor="White" HorizontalOptions="Center"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="20" Spacing="40">
+                <StackLayout Orientation="Vertical">
+                    <ImageButton x:Name="LoginE" Source="enseigne" xct:IconTintColorEffect.TintColor="White" BackgroundColor="#D20A11" HeightRequest="120" WidthRequest="120" CornerRadius="15" Clicked="LoginE_Clicked"></ImageButton>
+                    <Label Text="Un enseigniste" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <ImageButton x:Name="LoginP" Source="poseur" xct:IconTintColorEffect.TintColor="White" BackgroundColor="#D20A11" HeightRequest="120" WidthRequest="120" CornerRadius="15" Clicked="LoginP_Clicked"></ImageButton>
+                    <Label Text="Un poseur" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                </StackLayout>
+            </StackLayout>
+
+
+        </StackLayout>
+    </StackLayout>
+    
+
+
+</ContentPage>
