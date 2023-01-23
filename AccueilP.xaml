@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LaCasa.View.Accueil.AccueilPoseur.AccueilP"
+             xmlns:local="clr-namespace:LaCasa"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+            xmlns:tabbedbottom="clr-namespace:LaCasa"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            mc:Ignorable="d"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns:local3="clr-namespace:LaCasa.View.Accueil.AccueilPoseur.Profil" 
+            xmlns:local1="clr-namespace:LaCasa.View.Accueil.AccueilPoseur.Dashboard" xmlns:local2="clr-namespace:LaCasa.View.Accueil.AccueilPoseur.Missions"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            SelectedTabColor="#FFFFFF"
+            BarBackgroundColor="#D20A11"
+            UnselectedTabColor="#000000"
+            >
+    <!--reprendre du root ça va marcher-->
+    <NavigationPage Title="Dashboard" IconImageSource="dashboard" >
+        <x:Arguments>
+            <local1:Dashboard x:Name="Dashboard" Title="Dashboard" BackgroundColor="#000000">
+                <Grid BackgroundColor="Black">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" HeightRequest ="60">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0" WidthRequest="50" Source="compte"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="1" Source="stat"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="2" Source="notif"></ImageButton>
+                        <ImageButton x:Name="settings" BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="3" Source="parametre" Clicked ="settings_Clicked"></ImageButton>
+                        
+                    </Grid>
+                    <!-- à revoir 
+                    <StackLayout>
+                        <BoxView HeightRequest="0" Color="Red" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>-->
+                    <Grid Grid.Row="1" HeightRequest="180" Margin="10" Padding="10" BackgroundColor="Black">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Row="0" Grid.Column="0" BackgroundColor="White" TextColor="Black" CornerRadius="10" Text="RDV à confirmer" Clicked="Button_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" BackgroundColor="White" TextColor="Black" CornerRadius="10" Text="En attente d'intervention"/>
+                        <Button Grid.Row="1" Grid.Column="0" BackgroundColor="White" TextColor="Black" CornerRadius="10" Text="Terrain" />
+                        <Button Grid.Row="1" Grid.Column="1" BackgroundColor="White" TextColor="Black" CornerRadius="10" Text="Reporting du chantier" />
+                        <Button Grid.Row="2" Grid.Column="0" BackgroundColor="White" TextColor="Black" CornerRadius="10"  Text="Standby"/>
+                        <Button Grid.Row="2" Grid.Column="1" BackgroundColor="White" TextColor="Black" CornerRadius="10" Text="Reporting de la validation finale"/>
+                        <Button Grid.Row="3" Grid.Column="0" BackgroundColor="White" TextColor="Black" CornerRadius="10" Text="Mission cloturées"/>
+                        <Button Grid.Row="3" Grid.Column="1" BackgroundColor="#D20A11" TextColor="White" CornerRadius="10" Text="Archivées"/>
+                    </Grid>
+                </Grid>
+
+
+            </local1:Dashboard>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Missions" IconImageSource="rocket">
+        <x:Arguments>
+
+            <local2:Mission x:Name="Mission" Title="Missions" BackgroundColor="#000000">
+               <!--HAUT DE PAGE -->
+                <Grid BackgroundColor="Black">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" HeightRequest ="60">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0" WidthRequest="50" Source="compte"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="1" Source="stat"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="2" Source="notif"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="3" Source="parametre"></ImageButton>
+
+                    </Grid>
+                </Grid>
+                <!--CENTRE DE PAGE-->
+                <ListView x:Name="MissionsDisponibles">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Login}" LineBreakMode="NoWrap" FontSize="Medium"/>
+                                    <Label Text="{Binding Password}" LineBreakMode="NoWrap" FontSize="Small"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </local2:Mission>
+        </x:Arguments>
+    </NavigationPage>
+    
+    <NavigationPage Title="Profil" IconImageSource="menuDuBas">
+        <x:Arguments>
+            <local3:ProfilPage x:Name="Profil" Title="Profil" BackgroundColor="#000000">
+                <Grid BackgroundColor="Black">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" HeightRequest ="60">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0" WidthRequest="50" Source="compte"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="1" Source="stat"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="2" Source="notif"></ImageButton>
+                        <ImageButton BackgroundColor="Transparent" xct:IconTintColorEffect.TintColor="White" Grid.Row="0" Grid.Column="3" Source="parametre"></ImageButton>
+
+                    </Grid>
+                </Grid>
+
+            </local3:ProfilPage>
+        </x:Arguments>
+    </NavigationPage>
+    
+
+</TabbedPage>
+
+           

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LaCasa.View.Inscription.InscriptionPoseur.InscriptionP7"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <StackLayout Padding="20" Spacing="30">
+            <StackLayout Margin="10" Spacing="20">
+                <Image Source="compte" ></Image>
+                <BoxView HeightRequest="1" Color="#D20A11" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Spacing="15">
+                <Label Text="Inscription" FontSize="Large" TextColor="White" HorizontalOptions="Center"></Label>
+                <ProgressBar x:Name="progressBar" Progress="0.250" ProgressColor="#D20A11" ></ProgressBar>
+                <Entry x:Name="txtFacebook" Placeholder="Facebook" BackgroundColor="White" TextColor="Gray" PlaceholderColor="Gray" ></Entry>
+                <Entry x:Name="txtInstagram" Placeholder="Instagram" BackgroundColor="White" TextColor="Gray" PlaceholderColor="Gray"></Entry>
+                <Entry x:Name="txtLinkedln" Placeholder="Linkedln" BackgroundColor="White" TextColor="Gray" PlaceholderColor="Gray" MaxLength="10"></Entry>
+
+                <Button
+                VerticalOptions="Center"
+                Text="Poursuivre"
+                TextColor="White"
+                BackgroundColor="#D20A11"
+                BorderWidth="1.5"
+                CornerRadius="50"
+                Clicked="Follow_Clicked" 
+                ></Button>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

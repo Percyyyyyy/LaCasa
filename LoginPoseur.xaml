@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LaCasa.View.Connexion.ConnexionPoseur.LoginPoseur"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+    <!-- design OK / à faire fonctionner -->
+    <ContentPage.Content>
+        
+        <StackLayout Padding="20" Spacing="30">
+            <StackLayout Margin="10" Spacing="20">
+                <Image Source="compte" ></Image>
+                <BoxView HeightRequest="1" Color="Red" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Spacing="15">
+                <Label Text="Je suis ..." FontSize="Large" TextColor="White" HorizontalOptions="Center"></Label>
+                <Entry x:Name="login" Placeholder="Mail" BackgroundColor="White" TextColor="Gray" PlaceholderColor="Gray" ></Entry>
+                <Entry x:Name="password" Placeholder="Mot de passe" BackgroundColor="White" TextColor="Gray" PlaceholderColor="Gray" IsPassword="True"></Entry>
+
+                <Button
+                VerticalOptions="Center"
+                Text="Se connecter"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                BorderWidth="1.5"
+                CornerRadius="50"
+                Clicked="LoginP_Clicked" 
+                ></Button>
+
+                <Label HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Vous n'avez pas de compte ? " TextColor="Gray"/>
+                            <Span Text="Inscrivez-vous !" TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
